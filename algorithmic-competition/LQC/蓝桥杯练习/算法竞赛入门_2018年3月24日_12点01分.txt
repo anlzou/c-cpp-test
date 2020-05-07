@@ -1,0 +1,33 @@
+//1
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	double pi=4*atan(1.0);
+	printf("%.16lf\n",pi);
+	return 0;
+}
+
+
+//2
+#include<stdio.h>
+#include<math.h>
+
+/*
+while(x)  //用来求各个位的数，数组从最低位保存 
+	{
+		a[i++]=x%10;
+		x/=10;
+		//printf("%d\n",a[i-1]);
+	}
+*/
+
+int main()
+{
+	int x,y=0;
+	scanf("%d",&x);
+	y=(x%10)*100+(x/10%10)*10+x/100;  //(x%10)各位，(x/10%10)十位，(x%10)百位
+	printf("%03d",y); //前面不足三位用0补
+	return 0;
+}	
