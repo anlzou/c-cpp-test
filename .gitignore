@@ -1,2 +1,8 @@
 *.exe
 *.out
+/**/Debug
+*.DSP
+*.DSW
+*.NCB
+*.OPT
+*.PLG
