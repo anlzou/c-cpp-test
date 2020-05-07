@@ -1,0 +1,27 @@
+#include<stdio.h>
+#define N 10
+void main()
+{
+    int i,j,min_a;
+    float temp,data[N];
+    printf("输入%d个成绩:\n",N);
+    for (i=0;i<N;i++)
+    scanf("%f",&data[i]);
+    printf("输入的成绩为:\n");
+    for (i=0;i<N;i++)
+    printf("%5.1f",data[i]);
+    printf("\n");
+    for (i=0;i<N;i++)
+    {
+        min_a=i;
+        for (j=i+1;j<N;j++)
+            if (data[j]>data[min_a])
+            min_a=j;
+        temp=data[min_a];
+        data[min_a]=data[i];
+        data[i0]=temp;
+      }
+      printf("从大到小排序后:\n");
+      for (i=0;i<N;i++)
+      printf("%5.1f",data[i]);
+    }
