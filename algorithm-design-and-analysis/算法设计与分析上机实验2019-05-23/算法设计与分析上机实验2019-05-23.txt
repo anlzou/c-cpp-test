@@ -1,0 +1,100 @@
+实验3 求解组合问题
+编写一个实验程序，采用回溯法输出自然数1-n中任取r个数的所有组合。
+# include<stdio.h>
+# include<vector>
+using namespace std;
+//问题表示
+int n=5,r=3;      //全局变量
+void disppath(vector<int> path)   //输出一个组合
+{
+   for (int j=0;j<path.size();j++)
+      printf(" %d",path[j]);
+   printf("\n");
+}
+
+void dfs(vector<int>path,int i,int num)    //求解算法
+{
+   if(num==r)                                      //找到r个元素
+      disppath(path);
+   for(int j=i;j<=n;j++)                        //x[i]位置可以选择i-n的元素
+     {
+       path.push_back(j);                    //选择元素j
+       dfs(path,j+1,num+1);
+       path.pop_back();                     //回溯：不选择元素i
+      }
+}
+
+void main()
+{
+  vector<int> path;                         //存放一个解
+  printf("n=%d,r=%d的所有组合如下：\n",n,r);
+  dfs(path,1,0);
+}
+
+
+实验4 求解满足方程解问题
+编写一个实验程序，求出a、b、c、d、e,满足a*b-c*d+e=1方程，其中所有变量的取值为1--5并且均不相同。
+
+# include<stdio.h>
+//问题表示
+int x[5];           //存放问题解
+int n=5;          
+void swap(int &a,int &b)  //交换两个元素
+{
+   int tmp=a;
+   a=b;
+   b=tmp;
+}
+
+void dispasolution(int x[])     //输出一个解
+{
+  printf("%d*%d-%d*%d-%d=1\n",x[0],x[1],x[2],x[3],x[4]);
+}
+
+void dfs(int i)   //求解算法
+{
+  if (i==n)       //达到叶子结点
+   { 
+      if(x[0]*x[1]-x[2]*x[3]-x[4]==1)
+      dispasolution(x);
+    
+    }
+  else
+   {
+      for (int j=i;j<n;j++)
+       {
+          swap(x[i],x[j]);
+          dfs(i+1);
+          swap(x[i],x[j]);
+        }
+    }
+
+}
+void main()
+{
+   for(int j=0;j<n;j++)
+     x[j]=j+1;
+   printf("求解结果\n");
+   dfs(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
