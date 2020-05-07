@@ -1,0 +1,111 @@
+//插入排序
+void inset_sort(int array[],unsigned int n)
+{
+	int i,j;
+	int temp;
+	for(i=1; i<n; i++)
+	{
+		temp=array[i];
+		for(j=i; j>0 && array[j-1]>temp; j--)
+		{
+			array[j]=array[j-1];
+		}
+		array[j]=temp;
+	}
+}
+
+
+
+
+//希尔排序
+
+#include<stdio.h>
+#include<math.h>
+#define MAXNUM 10
+
+void main()
+{
+	void shellSort(int array[], int n, int t);  //t为排序趟数
+	int array[MAXNUM],i;
+	for(i=0; i<MAXNUM; i++)
+		scanf("%d",&array[i]);
+	shellSort(array, MAXNUM, int(log(MAXNUM+1)/log(2)));  //排序趟数应为log2(n+1)的整数部分
+	for(i=0; i<MAXNUM; i++)
+		printf("%d",array[i]);
+	printf("\n");
+}
+
+
+//按照当前增量进行插入排序
+void shelllnesert(int array[], int n, int dk)
+{
+	int i,j,temp;
+	for(i=dk; i<n;  i++)  //别离向每组的有序区域插入
+	{
+		temp=array[i];
+		for(j=i-dk; (j>=i%dk) && array[j]>temp; j-=dk)  //比较与记录后移同时进行
+			array[j+dk]=array[j];
+		if(j!=i-dk)
+			array[j+dk]=temp;  //插入
+	}
+}
+
+
+//计较Hibbard增量
+int dkHbbard(int t, int k)
+{
+	return int(pow(2, t-k+1)-1);
+}
+
+
+//希尔排序
+void shellnsert(int array[], int n, int t)
+{
+	void shelllnert(int array[], int n, int dk);
+	int i;
+	for(i=1; i<=t; i++)
+		shelllnesert(array, n, dkHbbard(t, i));
+}
+
+
+
+
+//选择排序
+void select_sort(int *a, int n)  //?,*a==a[]
+{
+	register int i,j,min,t;
+	for(i=0; i<n-1; i++)
+	{
+		min=i;  //查找最小值
+		for(j=i+1; j<n; j++)
+		{
+			if(a[min]>a[j])
+				min=j;  //互换
+			if(min!=i)
+			{
+				t=a[min];
+				a[min]=a[i];
+				a[i]=t;
+			}
+		}
+	}
+}
+
+
+
+
+//冒泡排序
+void bubble_sort(int a[], int n)
+{
+	int i,j,temp;
+	for(j=0; j<n-1; j++)
+		for(i=0; i<n-1-j; i++)
+		{
+			if(a[i]>a[i+1])
+			{
+				temp=a[i];
+				a[i]=a[i+1];
+				a[i+1]=temp;
+			}
+		}	
+}
