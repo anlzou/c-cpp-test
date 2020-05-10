@@ -13,22 +13,21 @@
  *
  * 问他们台伙至少捕了多少条鱼?以及每个人醒来时见到了多少鱼？
  *
- * 结果：10156,2031,406,81,16
+ * 结果：3906,781,156,31,6
  */
 #include <iostream>
 #include <stdio.h>
 using namespace std;
 
 int main() {
-    int i, j, k, l, m;  //看到的鱼
-
-    l = 1 + m * 5;  //从后面的人开始
+    int i, j, k, l, m;  // A、B、C、D、E得到的鱼
+    m = 1;              //最后一个人得到一条
+    l = 1 + m * 5;      //从后面的人开始
     k = 1 + l * 5;
     j = 1 + k * 5;
     i = 1 + j * 5;
-    if (m % 5 == 1 && l % 5 == 1 && k % 5 == 1 && j % 5 == 1 && i % 5 == 1) {
-        printf("%d,%d,%d,%d,%d\n", i, j, k, l, m);
-    }
+    printf("%d,%d,%d,%d,%d\n", i * 5 + 1, i, j, k, l);
+
     getchar();
     getchar();
     return 0;
