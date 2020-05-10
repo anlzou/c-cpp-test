@@ -1,3 +1,11 @@
+/***
+ * @Date        : 2020-05-10 09:09:28
+ * @LastEditors : anlzou
+ * @Github      : https://github.com/anlzou
+ * @LastEditTime: 2020-05-10 16:22:14
+ * @FilePath    : \c-cpp\code-test\C++\cpp_tanhaoqiang\p5_1_4.cpp
+ * @Describe    :
+ */
 #include <string.h>
 
 #include <iostream>
@@ -30,6 +38,7 @@ int main() {
     Student student1, student2;
     student1.setDate();
     student1.display();
+    getchar();
     getchar();
     return 0;
 }
